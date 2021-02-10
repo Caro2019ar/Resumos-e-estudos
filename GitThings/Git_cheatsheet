@@ -1,0 +1,17 @@
+•	Cd (nome da pasta) → change directory, move a uma pasta
+•	Cd(espaço).. → sobe a raiz da pasta
+•	Git --version  →  para averiguar la versión
+•	Git remote - v -> mostra em que repositorio está (link do github) Ex.: origin https://github.com/Caro2019ar/Curso.Prep.Henry.git
+•	Git status →  para saber si está en un repo de git o no 
+•	Git add (meio caminho) -> deixa arquivo listo para comitear Ex.: git add ../05-JS-IV/homework/homework.js
+•	Git commit –m ‘textinho’ → Comita arquivo com descrição
+•	Git log -> historico de commits
+•	Git add . → adiciona todos arquivos da pasta
+•	Git push origin master → para sincronizar atualizações no repositório Git Hub (na minha conta de onde clonei)
+•	Git pull -force --> forçou o push e resolver problema. Estava dando divergencia por eu ter deletado manualmente arquivos no Github e não permitia fazer Git push de nada mesmo fora da pasta!
+•	Git pull -> para atualizar la carpeta
+•	LS → List, mostra arquivos desta pasta
+•	Mkdir (nome da pasta) → cria pasta
+•	PWD (em que pasta está),
+•	rm → Deleta permanentemente
+•	Touch (nome.extensão)→ cria arquivo
