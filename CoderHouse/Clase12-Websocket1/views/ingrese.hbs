@@ -37,11 +37,15 @@
 	</form>
 	<p></p>
 	<span>Mensajes</span>
-	<div id="messages"></div>
-
-	<form onsubmit="return addMessage(this)">
-		<input type="text" id="username" placeholder="Tu Numbre">
-		<input type="text" id="texto" placeholder="Cuentanos algo...">
-		<input type="submit" value="Enviar">
-	</form>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+        const socket = io('ws://localhost:8080');
+        socket.on("mi mensaje", (data) => {
+            alert(data);
+            socket.emit(
+                "notificacion",
+                "mensaje recibido, despues de dar OK en el alert"
+            );
+        });
+        </script>
 </div>
