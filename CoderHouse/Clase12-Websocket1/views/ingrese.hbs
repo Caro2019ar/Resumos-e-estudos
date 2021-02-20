@@ -1,9 +1,7 @@
 <div clas="container-sm" style="padding: 50px 50px 10px">
-	<form
-		action="/api/productos"
+	<form onsubmit="return addProduto(this)"
 		class="form-signin"
-		enctype="application/x-www-form-urlencoded"
-		method="POST">
+		enctype="application/x-www-form-urlencoded">
 		<h3 style="color: blue">Ingrese <br />Producto</h3>
 		<p></p>
 		<div class="form-group col-md6">
@@ -11,7 +9,7 @@
 			<input
 				type="text"
 				class="form-control"
-				name="title"
+				id="title"
 				placeholder="Producto"
 				/>
 		</div>
@@ -20,7 +18,7 @@
 			<input
 				type="text"
 				class="form-control"
-				name="price"
+				id="price"
 				placeholder="Precio"
 				/>
 		</div>
@@ -29,23 +27,116 @@
 			<input
 				type="text"
 				class="form-control"
-				name="thumbnail"
+				id="thumbnail"
 				placeholder="http"
 				/>
 		</div>
 		<button type="submit" class="btn btn-success">Submit</button>
 	</form>
-	<p></p>
-	<span>Mensajes</span>
+
+
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
-        const socket = io('ws://localhost:8080');
-        socket.on("mi mensaje", (data) => {
-            alert(data);
-            socket.emit(
-                "notificacion",
-                "mensaje recibido, despues de dar OK en el alert"
-            );
-        });
-        </script>
+		const socket = io('ws://localhost:8080');
+
+		function render(data) {
+			var html = data
+				.map(function (elem, index) {
+					return `<div><strong style="color:blue">${
+						elem.email
+					}</strong> <span style="color:brown">${today.toLocaleDateString("en-US", options)}</span>: 
+				<em style="color:green">${elem.text}</em></div>`;
+				})
+				.join(" ");
+			document.getElementById("messages").innerHTML = html;
+		}
+		socket.on("messages", function (data) {
+			render(data);
+		});
+
+		function addMessage(e) {
+			var mensaje = {
+				email: document.getElementById("email").value,
+				text: document.getElementById("texto").value,
+			};
+			socket.emit("new-message", mensaje);
+			return false;
+		}
+
+		var today = new Date();
+
+		var options = {
+			year: "numeric",
+			month: "numeric",
+			day: "numeric",
+			hour: "2-digit",
+			minute: "2-digit",
+			second: "2-digit",
+		};
+
+		function renderProduto(prodData) {
+			var html = prodData
+				.map(function (elem, index) {
+					return `<div clas="container-sm"><table class="table table-dark">
+					<thead>
+					<tr>
+						<th scope="col">Nombre</th>
+						<th scope="col">Precio</th>
+						<th scope="col">Foto</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>${elem.title}</td>
+						<td>${elem.price}</td>
+						<td><img src=${elem.thumbnail} width=50 height=50></td>
+					</tr>
+					</tbody>
+					</table></div>`}).join(" ");
+			document.getElementById("listaProd").innerHTML = html;
+		}
+		socket.on("produtos", function (prodData) {
+			renderProduto(prodData);
+		});
+
+		function addProduto(e) {
+			var produto = {
+				title: document.getElementById("title").value,
+				price: document.getElementById("price").value,
+				thumbnail: document.getElementById("thumbnail").value,
+			};
+			socket.emit("new-produto", produto);
+			return false;
+		}
+		
+	</script>
 </div>
+
+<div clas="container-sm" style="padding: 50px 50px 10px">
+	<h3 style="color: blue">Lista de productos</h3>
+	<br>
+	<div id="listaProd"></div>
+	<p></p>
+	<p></p>
+	<h3 style="color: blue">Centro de Mensajes</h3>
+	<form onsubmit="return addMessage(this)">
+		<div class="form-group col-md6">
+			<input
+				type="text"
+				class="form-control"
+				id="email"
+				placeholder="pedro@gmail.com"
+				/>
+			<hr>
+			<div id="messages"></div>
+			<p></p>
+			<input
+				type="text"
+				class="form-control"
+				id="texto"
+				placeholder="Ingresá un mensaje..."
+				/>
+			<p></p>
+			<button type="submit" class="btn btn-primary">Enviar</button>
+		</div>
+	</form>
