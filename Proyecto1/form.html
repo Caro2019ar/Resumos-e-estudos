@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/listar.css">
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous">
+	</head>
+	<body style="background-color: #ebf2f7">
+		<nav class="navbar navbar-light bg-light justify-content-between">
+			<a class="navbar-brand" style="color:grey">Ingreso de productos</a>
+		</nav>
+		<div clas="container-sm" style="padding: 0px 50px 50px">
+			<form
+				action="/productos"
+				enctype="application/x-www-form-urlencoded"
+				method="POST">
+
+
+				<p></p>
+				<!-- ******* OBS> : Entendo que o ID e o TIMESTAMP sejam gerados pelo servidor -->
+				<div class="form-group col-md6">
+					Nombre
+					<input
+						type="text"
+						class="form-control"
+						name="nombre"
+						placeholder="Producto"
+						style="width:50%"
+						/>
+				</div>
+				<div class="form-group">
+					Precio
+					<input
+						type="text"
+						class="form-control"
+						name="precio"
+						placeholder="Precio"
+						style="width:50%"
+						/>
+				</div>
+				<div class="form-group">
+					Foto URL
+					<input
+						type="text"
+						class="form-control"
+						name="foto"
+						placeholder="http"
+						style="width:50%"
+						/>
+				</div>
+				<div class="form-group">
+					Descripcion
+					<input
+						type="text"
+						class="form-control"
+						name="descripcion"
+						style="width:50%"
+						/>
+				</div>
+				<div class="form-group">
+					Codigo
+					<input
+						type="text"
+						class="form-control"
+						name="codigo"
+						style="width:50%"
+						/>
+				</div>
+				<div class="form-group">
+					Stock
+					<input
+						type="text"
+						class="form-control"
+						name="stock"
+						style="width:50%"
+						/>
+				</div>
+				<button type="submit" class="btn btn-outline-success">Submit</button>
+			</form>
+			<br />
+		</div>
+		<div>
+			<!-- <div class="card-deck" style="padding-top:20px">
+				<div class="card border-dark mb-4">
+					<img
+						class="card-img-top"
+						src="https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-512.png">
+					<div class="card-body">
+						<h5 class="card-title">Globe</h5>
+						<table>
+							<tbody>
+								<tr>
+									<th scope="row">Descripcion</th>
+									<td>Globe with gold</td>
+								</tr>
+								<tr>
+									<th scope="row">Id</th>
+									<td>1</td>
+								</tr>
+								<tr>
+									<th scope="row">Timestamp</th>
+									<td>01/03/2021</td>
+								</tr>
+								<tr>
+									<th scope="row">Codigo</th>
+									<td>928278</td>
+								</tr>
+								<tr>
+									<th scope="row">Precio</th>
+									<td>$443,00</td>
+								</tr>
+								<tr>
+									<th scope="row">Stock</th>
+									<td>32</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<a href="#" class="btn btn-primary">Actualizar</a>
+						<a href="#" class="btn btn-danger">Eliminar</a>
+					</div>
+				</div>
+				<div class="card border-dark mb-4">
+					<img
+						class="card-img-top"
+						src="https://cdn3.iconfinder.com/data/icons/education-209/64/clock-stopwatch-timer-time-512.png">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<table>
+							<tbody>
+								<tr>
+									<th scope="row">Descripcion</th>
+									<td>Globe with gold</td>
+								</tr>
+								<tr>
+									<th scope="row">Id</th>
+									<td>1</td>
+								</tr>
+								<tr>
+									<th scope="row">Timestamp</th>
+									<td>01/03/2021</td>
+								</tr>
+								<tr>
+									<th scope="row">Codigo</th>
+									<td>928278</td>
+								</tr>
+								<tr>
+									<th scope="row">Precio</th>
+									<td>$443,00</td>
+								</tr>
+								<tr>
+									<th scope="row">Stock</th>
+									<td>45</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<a href="#" class="btn btn-primary">Actualizar</a>
+						<a href="#" class="btn btn-danger">Eliminar</a>
+					</div>
+
+				</div>
+
+				<div class="card border-dark mb-4">
+					<img
+						class="card-img-top"
+						src="https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<table>
+							<tbody>
+								<tr>
+									<th scope="row">Descripcion</th>
+									<td>Globe with gold</td>
+								</tr>
+								<tr>
+									<th scope="row">Id</th>
+									<td>1</td>
+								</tr>
+								<tr>
+									<th scope="row">Timestamp</th>
+									<td>01/03/2021</td>
+								</tr>
+								<tr>
+									<th scope="row">Codigo</th>
+									<td>928278</td>
+								</tr>
+								<tr>
+									<th scope="row">Precio</th>
+									<td>$443,00</td>
+								</tr>
+								<tr>
+									<th scope="row">Stock</th>
+									<td>223</td>
+								</tr>
+							</tbody>
+						</table>
+						<p></p>
+						<a href="#" class="btn btn-primary">Actualizar</a>
+						<a href="#" class="btn btn-danger">Eliminar</a>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</body>
+</html>

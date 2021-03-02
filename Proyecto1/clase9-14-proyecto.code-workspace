@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Clase14/Desafio14/Clase14-Node1"
+		},
+		{
+			"path": "../../Clase11/Clase11-MotorPlantilla/PUG"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Proyecto1"
+	}
+}
